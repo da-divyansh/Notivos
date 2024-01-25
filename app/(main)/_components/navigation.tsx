@@ -2,16 +2,26 @@
 
 import { cn } from "@/lib/utils";
 import { UserItem } from "./user-items";
+import { Item } from "./item";
 
-import { ChevronsLeft, MenuIcon } from "lucide-react";
+import { 
+    ChevronsLeft, 
+    MenuIcon, 
+    PlusCircle 
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import { useMutation, useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { toast } from "sonner";
 
 export const Navigation = () => {
     const pathname = usePathname();
     const isMobile = useMediaQuery("(max-width: 768px)");
-    
+    const documents = useQuery(api.documents.get);
+    const create = useMutation(api.documents.create);
+
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
     const navbarRef = useRef<ElementRef<"div">>(null);
@@ -54,13 +64,13 @@ export const Navigation = () => {
             navbarRef.current.style.setProperty("left", `${newWidth}px`);
             navbarRef.current.style.setProperty("width", `calc(100% - ${newWidth}px)`);
         }
-    }
+    };
 
     const handleMouseUp = () => {
         isResizingRef.current = false;
         document.removeEventListener("mousemove", handleMouseMove);
         document.removeEventListener("mouseup", handleMouseUp);
-    }
+    };
 
     const resetWidth = () => {
         if (sidebarRef.current && navbarRef.current) {
@@ -85,7 +95,17 @@ export const Navigation = () => {
             navbarRef.current.style.setProperty("left", "0");
             setTimeout(() => setIsResetting(false), 300);
         }
-    }
+    };
+
+    const handleCreate = () => {
+        const promise = create({title: "Untitled"});
+
+        toast.promise(promise, {
+            loading: "Creating a new note... ",
+            success: "New note created!",
+            error: "Failed to create a new note."
+        });
+    };
 
     return (
         <>
@@ -108,9 +128,18 @@ export const Navigation = () => {
             </div>
             <div>
                 <UserItem/>
+                <Item 
+                  onClick= {handleCreate} 
+                  label="New page" 
+                  icon={PlusCircle}
+                />
             </div>
             <div className="mt-4">
-                <p>Documents</p>
+                {documents?.map((document) => (
+                    <p key={document._id}>
+                        {document.title}
+                    </p>
+                ))}
             </div>
             <div
               onMouseDown={handleMouseDown}
