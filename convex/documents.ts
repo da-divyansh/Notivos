@@ -5,7 +5,7 @@ import { Doc, Id } from "./_generated/dataModel";
 
 
 export const archived = mutation({
-    args: { id: v.id("documnets") },
+    args: { id: v.id("documents") },
     handler: async ( ctx, args) => {
         const identity = await ctx.auth.getUserIdentity();
 
