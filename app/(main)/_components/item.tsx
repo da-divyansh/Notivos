@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { useMutation } from "convex/react";
 import { ChevronDown, ChevronRight, LucideIcon, Plus } from "lucide-react"
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { toast } from "sonner";
 
@@ -37,7 +37,7 @@ export const Item = ({
     icon: Icon,
     documentIcon
 }: ItemProps) => {
-    // const router = useRouter();
+    const router = useRouter();
     const create = useMutation(api.documents.create);
 
     const handleExpand = (
@@ -57,7 +57,7 @@ export const Item = ({
             if (!expanded) {
                 onExpand?.();
             }
-            // router.push(`/document/${documentId}`);
+            router.push(`/document/${documentId}`);
         });
         toast.promise(promise, {
             loading: "Creating a new note...",

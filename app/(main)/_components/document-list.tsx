@@ -6,8 +6,7 @@ import { useQuery } from "convex/react";
 import { cn } from "@/lib/utils";
 import { Item } from "./item";
 
-import { useParams } from "next/navigation";
-import { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { File } from "lucide-react";
 
@@ -22,7 +21,7 @@ export const DocumentList = ({
     level = 0
 }: DocumentListProps) => {
     const params = useParams();
-    const router = useRouter;
+    const router = useRouter();
     const [expanded, setExpanded] = useState<Record<string, boolean>>({})
 
     const onExpand = (documentId: string) => {
