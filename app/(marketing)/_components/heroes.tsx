@@ -11,12 +11,14 @@ export const Heroes = () => {
                       fill
                       className="object-contain dark:hidden"
                       alt="Documents"
+                      sizes="default"
                     />
                     <Image
                       src= "/documents-dark.png"
                       fill
                       className="object-contain hidden dark:block"
                       alt="Documents"
+                      sizes="default"
                     />
                 </div>
                 <div className="relative h-[400px] w-[400px] hidden md:block">
@@ -25,12 +27,14 @@ export const Heroes = () => {
                         fill
                         className="object-contain dark:hidden"
                         alt="Reading"
+                        sizes="default"
                         />
                     <Image
                         src="/reading-dark.png"
                         fill
                         className="object-contain hidden dark:block"
                         alt="Reading"
+                        sizes="default"
                     />
                 </div>
             </div>
