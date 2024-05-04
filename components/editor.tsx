@@ -11,7 +11,7 @@ interface EditorProps {
     initialContent?: string;
 }
 
-export const Editor = ({
+const Editor = ({
     onChange,
     initialContent
 } : EditorProps) => {
@@ -46,3 +46,5 @@ export const Editor = ({
         />
     )
 }
+
+export default Editor;
