@@ -9,11 +9,13 @@ import { useEdgeStore } from "@/lib/edgestore";
 interface EditorProps {
     onChange?: (content: string) => void;
     initialContent?: string;
+    editable?: boolean;
 }
 
 const Editor = ({
     onChange,
-    initialContent
+    initialContent,
+    editable = true
 } : EditorProps) => {
     const { edgestore } = useEdgeStore();
     const { resolvedTheme } = useTheme();
