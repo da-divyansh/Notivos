@@ -55,11 +55,12 @@ const DocumentIdPage = ({
 
 
     return (
-        <div className="pb-40 h-full dark:bg-[#1F1F1F]">
-            <Cover url={document.coverImage} />   
+        <div className="pb-40">
+            <Cover preview url={document.coverImage} />   
             <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
-               <Toolbar initialData={document} />
+               <Toolbar preview initialData={document} />
                <Editor
+                   editable={false}
                    onChange={onChange}
                    initialContent={document.content}
                />
