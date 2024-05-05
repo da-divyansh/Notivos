@@ -58,7 +58,7 @@ export const SearchCommand = () => {
     return (
         <CommandDialog open={isOpen} onOpenChange={onClose}>
             <CommandInput
-                placeholder= {`Search ${user?.fullName}'s TodoApp`}
+                placeholder= {`Search ${user?.fullName}'s documents`}
             />
             <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty> 
