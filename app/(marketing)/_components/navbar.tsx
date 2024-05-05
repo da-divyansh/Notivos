@@ -30,16 +30,16 @@ export const Navbar = () => {
                         </SignInButton>
                         <SignInButton mode="modal">
                             <Button size="sm">
-                                Get ToDo App free
+                                Get Notivos free
                             </Button>
                         </SignInButton>
                     </>
                 )}
                 {isAuthenticated && !isLoading && (
                   <>
-                    <Button variant= "ghost" size="sm">
+                    <Button size="sm">
                         <Link href="/documents">
-                            Enter ToDo App
+                            Make a note
                         </Link>
                     </Button>
                     <UserButton

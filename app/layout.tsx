@@ -12,8 +12,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ToDo App',
-  description: 'A connected app for todo app.',
+  title: 'Notivos',
+  description: 'A connected app for todo.',
   icons: {
     icon: [
       {

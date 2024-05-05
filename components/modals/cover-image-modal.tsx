@@ -11,7 +11,6 @@ import {
 import { useCoverImage } from "@/hooks/use-cover-image";
 import { SingleImageDropzone } from "../single-image-dropzone";
 import { useEdgeStore } from "@/lib/edgestore";
-import { set } from "zod";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 

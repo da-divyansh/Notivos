@@ -14,10 +14,10 @@ export const Heading = () => {
         <div className="max-w-3xl space-y-4">
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
                 Your Ideas, Documents, & Plans Unified. Welcome to
-                <span className="underline">ToDo</span>
+                <span className="underline"> Notivos</span>
             </h1>
             <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-               ToDo App is the connected workspace where <br/>
+                Notivos App is the connected workspace where <br/>
                 better, faster works happens. 
             </h3>
             {isLoading && (
@@ -28,7 +28,7 @@ export const Heading = () => {
             {isAuthenticated && !isLoading && (
             <Button asChild>
                 <Link href= "/documents">
-                Enter ToDoApp 
+                Enter Notivos
                 <ArrowRight className="h-4 w-4 ml-2"/>
                 </Link>
             </Button>
@@ -36,7 +36,7 @@ export const Heading = () => {
             {!isAuthenticated && !isLoading && (
                 <SignInButton mode="modal">
                     <Button>
-                        Get TodoApp Free
+                        Get Notivos Free
                         <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
                 </SignInButton>

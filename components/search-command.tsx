@@ -34,7 +34,7 @@ export const SearchCommand = () => {
         const down = (e: KeyboardEvent) => {
             if (e.key === "k" && (e.ctrlKey || e.metaKey)) {
                 e.preventDefault();
-                toggle(); // Assuming `toggle` is defined and accessible
+                toggle();
             }
         };
     

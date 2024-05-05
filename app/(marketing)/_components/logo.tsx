@@ -25,8 +25,8 @@ export const Logo = () => {
                 alt="Logo"
                 className="hidden dark:block"
             />
-            <p className= {cn("font-semibold", font.className)}>
-                ToDoApp
+            <p className= {cn("font-semibold ", font.className)}>
+                Notivos
             </p>
         </div>
     )

@@ -26,7 +26,7 @@ export const SettingsModal = () => {
                     Appearance
                 </Label>
                 <span className="text-[0.8rem] text-muted-foreground">
-                    Customize how Todo App looks on your device.
+                    Customize how Notivos looks on your device.
                 </span>
             </div>
             <ModeToggle />
