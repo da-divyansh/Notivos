@@ -371,3 +371,17 @@ export const removeCoverImage = mutation({
         return document;
     }
 });
+
+export const preview = mutation({
+    args: { 
+        id: v.id("documents"),
+    },
+    handler: async (ctx, args) => {
+        const existingDocument = await ctx.db.get(args.id);
+
+        if(!existingDocument) {
+            throw new Error("Not Found")
+        }
+        return existingDocument;
+    }    
+});

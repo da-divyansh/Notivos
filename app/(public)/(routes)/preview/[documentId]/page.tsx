@@ -25,12 +25,11 @@ const DocumentIdPage = ({
         documentId: params.documentId
     });
     
-    const update = useMutation(api.documents.update);
+    const preview = useMutation(api.documents.preview);
 
-    const onChange = (content : string) => {
-        update({
+    const onChange = () => {
+        preview({
             id: params.documentId,
-            content
         });
     };
 
