@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 
 import { Logo } from "./logo"
+import Link from "next/link"
 
 export const Footer = () => {
     return (
@@ -12,6 +13,11 @@ export const Footer = () => {
                 </Button>
                 <Button variant="ghost" size="sm">
                     Terms & Conditions
+                </Button>
+                <Button  size="sm">
+                    <Link href="https://github.com/da-divyansh/Notivos" target="_blank">
+                        Github
+                    </Link>
                 </Button>
             </div>
         </div>
