@@ -1,17 +1,29 @@
 "use client"
 
-import { ReactNode } from "react"
+import { ReactNode, useMemo } from "react"
 import { ConvexReactClient } from "convex/react"
 import { ConvexProviderWithClerk } from "convex/react-clerk"
 import { ClerkProvider, useAuth } from "@clerk/clerk-react"
-
-const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 export const ConvexClientProvider = ({
     children
 }: {
     children: ReactNode;
 }) => {
+    const convex = useMemo(() => {
+        const url = process.env.NEXT_PUBLIC_CONVEX_URL;
+        if (!url) return null;
+        return new ConvexReactClient(url);
+    }, []);
+
+    if (!convex) {
+        return (
+            <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!}>
+               {children}
+            </ClerkProvider>
+        );
+    }
+
     return (
         <ClerkProvider
             publishableKey={ process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY! }
