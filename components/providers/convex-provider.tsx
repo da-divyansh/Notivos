@@ -13,6 +13,11 @@ export const ConvexClientProvider = ({
     const convex = useMemo(() => {
         const url = process.env.NEXT_PUBLIC_CONVEX_URL;
         if (!url) return null;
+        try {
+            new URL(url);
+        } catch {
+            return null;
+        }
         return new ConvexReactClient(url);
     }, []);
 
