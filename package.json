@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "if [ \"$VERCEL_ENV\" = \"production\" ]; then npx convex deploy --cmd \"npm run build\"; else npm run build; fi",
     "start": "next start",
     "lint": "eslint ."
   },
